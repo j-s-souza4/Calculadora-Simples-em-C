@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int adicao(int n1, int n2){
     printf("Resultado: %d + %d = %d\n", n1, n2, n1+n2);
@@ -25,11 +26,12 @@ int main(){
     int opcao, n1, n2;
     char resposta;
 
+    do{
     printf("==================================\n");
     printf("       Calculadora Simples        \n");
     printf("==================================\n");
 
-    do{
+
        printf("Selecione uma operacao:\n");
        printf("1. Adicao\n");
        printf("2. Subtracao\n");
@@ -44,7 +46,6 @@ int main(){
           scanf("%d", &n1);
           printf("Digite o segundo numero: ");
           scanf("%d", &n2);
-       }
 
        switch(opcao){
           case 1:
@@ -59,13 +60,16 @@ int main(){
           case 4:
             divisao(n1,n2);
             break;
-          case 5:
-            printf("Obrigado por usar a calculadora! Ate a proxima.\n");
-            break;
-          default:
-            printf("Opcao invalida! Tente novamente.\n");
-            break;
        }
+       }else if(opcao == 5){
+          printf("Obrigado por usar a calculadora! Ate a proxima.\n");
+          break;
+       }else{
+          printf("Opcao invalida! Tente novamente.\n");
+       }
+       
+       printf("\n=========================================\n");
+
        printf("Deseja realizar outra operacao? (s/n): ");
        getchar();
        scanf("%c", &resposta);
@@ -75,3 +79,4 @@ int main(){
   }while(resposta == 's' || resposta == 'S');
      return 0;
 }
+
